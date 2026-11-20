@@ -24,15 +24,39 @@ This repository contains a full hands-on demonstration of resolving an intention
 3. **`feature/headline-marketing`**: Marketing team's revision emphasizing fast conversion and zero-friction signup.
 
 ### The Conflict
-Both feature branches modified lines 36–39 of `index.html` (the hero title, subtitle, and primary call-to-action button). 
+Both feature branches modified lines 38–44 of `index.html` (the hero title, subtitle, and primary call-to-action button). 
 
-When `feature/headline-modern` was merged into `main`, the merge succeeded cleanly. Subsequently, attempting to merge `feature/headline-marketing` into `main` triggered a 3-way merge conflict (`CONFLICT (content): Merge conflict in index.html`).
+When `feature/headline-modern` was merged into `main`, the merge succeeded cleanly (`299de36`). Subsequently, attempting to merge `feature/headline-marketing` into `main` triggered a 3-way merge conflict:
+```text
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+```
 
 ### Manual Resolution
 The conflict was inspected via `git status` and `git diff`, and resolved by synthesizing both copies into a unified, high-converting hero section:
-- **Consensus Headline:** `Supercharge your data workflows with intelligent automation`
-- **Consensus Subtitle:** `Connect APIs, sync distributed databases, and eliminate pipeline latency with zero-maintenance infrastructure.`
-- **Consensus CTA:** `Start Free Trial — No Credit Card Required`
+- **Consensus Headline:** `Supercharge your cloud data workflows with intelligent automation`
+- **Consensus Subtitle:** `Turn complex event pipelines into turnkey automations in minutes. Zero maintenance, zero-code integrations, pure engineering velocity.`
+- **Consensus CTA:** `Start Free Trial — Instant Access →`
+
+The resolution was staged with `git add index.html` and concluded with merge commit `2c48366`.
+
+---
+
+## 🌳 Git Commit Graph
+
+```text
+*   2c48366 (HEAD -> main) Merge branch 'feature/headline-marketing' into main: manually resolve hero copy conflict
+|\  
+| * 553c01f (feature/headline-marketing) feat(marketing): update hero copy with conversion-optimized value proposition
+* |   299de36 Merge branch 'feature/headline-modern' into main
+|\ \  
+| |/  
+|/|   
+| * 814bec7 (feature/headline-modern) feat(hero): modernize hero headline and primary CTA for technical audience
+|/  
+* f640fb2 Initial commit: PulseFlow landing page MVP structure
+```
 
 ---
 
