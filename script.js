@@ -21,3 +21,4 @@ document.addEventListener('DOMContentLoaded', () => {
   // Log landing page readiness
   console.log('⚡ PulseFlow Landing Page loaded successfully.');
 });
+
